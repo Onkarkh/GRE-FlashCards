@@ -41,6 +41,7 @@
         android:layout_width="match_parent"
         android:layout_height="30dp"
         android:layout_below="@+id/lab_mastered"
+        android:layout_margin="20dp"
         android:max="100" />
 
 
@@ -60,6 +61,7 @@
         android:layout_width="match_parent"
         android:layout_height="30dp"
         android:layout_below="@+id/lab_learning"
+        android:layout_margin="20dp"
         android:max="100" />
 
 </RelativeLayout>

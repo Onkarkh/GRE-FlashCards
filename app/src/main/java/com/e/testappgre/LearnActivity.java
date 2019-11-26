@@ -1,6 +1,7 @@
 package com.e.testappgre;
 
 import android.annotation.SuppressLint;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -50,7 +51,7 @@ public class LearnActivity extends AppCompatActivity {
         easyFlipView = findViewById(R.id.easyflipview);
 
         masterWords = new LinkedHashSet<>();
-        learningWords = new LinkedHashSet<String>();
+        learningWords = new LinkedHashSet<>();
 
         //init
         getCurrentWord();
@@ -127,11 +128,18 @@ public class LearnActivity extends AppCompatActivity {
     @SuppressLint("SetTextI18n")
     private void refreshProgressBar() {
         int masterListSize = masterWords.size();
-        master.setProgress(masterListSize * 20);
-        labm.setText("Mastered WordList "+masterListSize+"/5");
+        int totalSize = wordData.easyWord1.length;
+        labm.setText("Mastered WordList "+masterListSize+"/"+totalSize);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            master.setProgress(masterListSize*(4),true);
+        }
+
 
         int learningListSize = learningWords.size();
-        learn.setProgress(learningListSize * 20);
-        labl.setText("Learning WordList "+learningListSize+"/5");
+        int totalSize1 = wordData.easyWord1.length;
+        labl.setText("Learning WordList "+learningListSize+"/"+totalSize1);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            learn.setProgress(learningListSize*(4),true);
+        }
     }
 }
