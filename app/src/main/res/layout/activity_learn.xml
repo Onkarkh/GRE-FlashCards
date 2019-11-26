@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LearnActivity">
+
+    <com.wajahatkarim3.easyflipview.EasyFlipView
+        android:id="@+id/easyflipview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:autoFlipBack="false"
+        app:flipDuration="400"
+        app:flipEnabled="true"
+        app:flipFrom="right"
+        app:flipOnTouch="true"
+        app:flipType="horizontal">
+
+        <!-- Back Layout Goes Here -->
+        <include layout="@layout/flash_card_layout_back" />
+
+        <!-- Front Layout Goes Here -->
+        <include layout="@layout/flash_card_layout_front" />
+
+    </com.wajahatkarim3.easyflipview.EasyFlipView>
+
+    <TextView
+        android:id="@+id/lab_mastered"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/easyflipview"
+        android:layout_marginLeft="10dp"
+        android:text="Mastered WordList"
+        android:textColor="#000"
+        android:textSize="18sp" />
+
+    <ProgressBar
+        android:id="@+id/mastered"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_below="@+id/lab_mastered"
+        android:max="100" />
+
+
+    <TextView
+        android:id="@+id/lab_learning"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/mastered"
+        android:layout_marginLeft="10dp"
+        android:text="Learning WordList"
+        android:textColor="#000"
+        android:textSize="18sp" />
+
+    <ProgressBar
+        android:id="@+id/learning"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_below="@+id/lab_learning"
+        android:max="100" />
+
+</RelativeLayout>
