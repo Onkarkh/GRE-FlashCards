@@ -11,7 +11,7 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginBottom="8dp"
-        app:cardBackgroundColor="@color/colorPrimary"
+        app:cardBackgroundColor="#e5e5e5"
         app:cardCornerRadius="15dp">
 
         <TextView
@@ -20,7 +20,8 @@
             android:layout_height="match_parent"
             android:layout_margin="10sp"
             android:text="Words"
-            android:textColor="#FFF"
+            android:gravity="center"
+            android:textColor="#000"
             android:textSize="30sp"
             android:textStyle="bold" />
 

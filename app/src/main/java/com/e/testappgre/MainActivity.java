@@ -28,21 +28,7 @@ public class MainActivity extends AppCompatActivity {
         listView = findViewById(R.id.listview);
 
         wordList = new ArrayList<>();
-        wordList.add("Easy Words - I");
-        wordList.add("Easy Words - II");
-//        wordList.add("Easy Words - III");
-//        wordList.add("Easy Words - IV");
-//        wordList.add("Easy Words - V");
-//        wordList.add("Medium Words - I");
-//        wordList.add("Medium Words - II");
-//        wordList.add("Medium Words - III");
-//        wordList.add("Medium Words - IV");
-//        wordList.add("Medium Words - V");
-//        wordList.add("Hard Words - I");
-//        wordList.add("Hard Words - II");
-//        wordList.add("Hard Words - III");
-//        wordList.add("Hard Words - IV");
-//        wordList.add("Hard Words - V");
+        wordList.add("High Frequency 25");
 
         listView.setAdapter(new SetData());
 
