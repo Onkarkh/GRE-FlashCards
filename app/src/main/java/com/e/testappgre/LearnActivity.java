@@ -1,7 +1,6 @@
 package com.e.testappgre;
 
 import android.annotation.SuppressLint;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -13,7 +12,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.wajahatkarim3.easyflipview.EasyFlipView;
 
-import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.Random;
 
@@ -23,7 +21,7 @@ public class LearnActivity extends AppCompatActivity {
     Button yes, no;
     ProgressBar master, learn;
 
-    int currentIndex, prevM, prevL;
+    int currentIndex;
 
     LinkedHashSet<String> masterWords;
     LinkedHashSet<String> learningWords;
@@ -77,7 +75,7 @@ public class LearnActivity extends AppCompatActivity {
     }
 
     private void ifWordStateNegative() {
-        String check = wordData.easyWord1[currentIndex];
+        String check = wordData.easyWord[currentIndex];
         if (masterWords.contains(check)) {
             learningWords.add(check);
             masterWords.remove(check);
@@ -91,7 +89,7 @@ public class LearnActivity extends AppCompatActivity {
     }
 
     private void ifWordStatePositive() {
-        String check = wordData.easyWord1[currentIndex];
+        String check = wordData.easyWord[currentIndex];
         if (learningWords.contains(check)) {
             masterWords.add(check);
             learningWords.remove(check);
@@ -107,10 +105,10 @@ public class LearnActivity extends AppCompatActivity {
 
     private void getCurrentWord() {
         Random random = new Random();
-        currentIndex = random.nextInt(wordData.easyWord1.length);
-        showWord.setText(wordData.easyWord1[currentIndex]);
-        theWord.setText(wordData.easyWord1[currentIndex]);
-        theMeaning.setText(wordData.easyMeaning1[currentIndex]);
+        currentIndex = random.nextInt(wordData.easyWord.length);
+        showWord.setText(wordData.easyWord[currentIndex]);
+        theWord.setText(wordData.easyWord[currentIndex]);
+        theMeaning.setText(wordData.easyMeaning[currentIndex]);
         refreshProgressBar();
     }
 
@@ -128,18 +126,14 @@ public class LearnActivity extends AppCompatActivity {
     @SuppressLint("SetTextI18n")
     private void refreshProgressBar() {
         int masterListSize = masterWords.size();
-        int totalSize = wordData.easyWord1.length;
+        int totalSize = wordData.easyWord.length;
         labm.setText("Mastered WordList "+masterListSize+"/"+totalSize);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            master.setProgress(masterListSize*(4),true);
-        }
+        master.setProgress(masterListSize * (4));
 
 
         int learningListSize = learningWords.size();
-        int totalSize1 = wordData.easyWord1.length;
+        int totalSize1 = wordData.easyWord.length;
         labl.setText("Learning WordList "+learningListSize+"/"+totalSize1);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            learn.setProgress(learningListSize*(4),true);
-        }
+        learn.setProgress(learningListSize * (4));
     }
 }
